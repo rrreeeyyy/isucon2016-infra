@@ -107,3 +107,9 @@ ngx.say(res.body)
 - http://yokoninaritai.hatenablog.jp/entry/2013/11/25/184802
 - http://ijin.github.io/blog/2013/12/13/serverfesta-2013-autumn/
 - http://tech.mercari.com/entry/2015/11/25/170049
+
+## その他
+
+- テンプレートの展開
+    - https://github.com/bungle/lua-resty-template
+    - https://github.com/bungle/lua-resty-template#installation
