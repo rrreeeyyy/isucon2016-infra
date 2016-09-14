@@ -11,12 +11,12 @@
 ).each { |p| package p }
 
 SRC_DIR = "/usr/local/src/"
-OPENRESTY_VERSION = "1.9.3.1"
+OPENRESTY_VERSION = "1.11.2.1"
 CACHE_PURGE_VERSION = "2.3"
 
-execute "wget https://openresty.org/download/ngx_openresty-#{OPENRESTY_VERSION}.tar.gz" do
+execute "wget https://openresty.org/download/openresty-#{OPENRESTY_VERSION}.tar.gz" do
   cwd SRC_DIR
-  not_if "test -f #{SRC_DIR}ngx_openresty-#{OPENRESTY_VERSION}.tar.gz"
+  not_if "test -f #{SRC_DIR}openresty-#{OPENRESTY_VERSION}.tar.gz"
 end
 
 execute "wget http://labs.frickle.com/files/ngx_cache_purge-#{CACHE_PURGE_VERSION}.tar.gz" do
@@ -24,9 +24,9 @@ execute "wget http://labs.frickle.com/files/ngx_cache_purge-#{CACHE_PURGE_VERSIO
   not_if "test -f #{SRC_DIR}ngx_cache_purge-#{CACHE_PURGE_VERSION}.tar.gz"
 end
 
-execute "tar zxfv ngx_openresty-#{OPENRESTY_VERSION}.tar.gz" do
+execute "tar zxfv openresty-#{OPENRESTY_VERSION}.tar.gz" do
   cwd SRC_DIR
-  not_if "test -d #{SRC_DIR}ngx_openresty-#{OPENRESTY_VERSION}"
+  not_if "test -d #{SRC_DIR}openresty-#{OPENRESTY_VERSION}"
 end
 
 execute "tar zxfv ngx_cache_purge-#{CACHE_PURGE_VERSION}.tar.gz" do
@@ -35,7 +35,7 @@ execute "tar zxfv ngx_cache_purge-#{CACHE_PURGE_VERSION}.tar.gz" do
 end
 
 execute "execute openresty configure script" do
-  cwd "#{SRC_DIR}ngx_openresty-#{OPENRESTY_VERSION}/"
+  cwd "#{SRC_DIR}openresty-#{OPENRESTY_VERSION}/"
   command <<-EOS
 ./configure \
 --sbin-path=/usr/sbin/nginx \
@@ -61,13 +61,13 @@ execute "execute openresty configure script" do
   --with-http_secure_link_module \
   --with-http_sub_module
   EOS
-  not_if "test -f #{SRC_DIR}ngx_openresty-#{OPENRESTY_VERSION}/Makefile"
+  not_if "test -f #{SRC_DIR}openresty-#{OPENRESTY_VERSION}/Makefile"
 end
 
 execute "make && make install openresty" do
-  cwd "#{SRC_DIR}ngx_openresty-#{OPENRESTY_VERSION}/"
+  cwd "#{SRC_DIR}openresty-#{OPENRESTY_VERSION}/"
   command "make && make install"
-  not_if "nginx -v 2>&1 | grep openresty"
+  not_if "nginx -v 2>&1 | grep openresty/#{OPENRESTY_VERSION}"
 end
 
 remote_file "/etc/init.d/nginx" do
