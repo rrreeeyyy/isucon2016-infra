@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo mv /var/log/nginx/access.log /var/log/nginx/access.log-$(date +%k%M)
+sudo service nginx reload

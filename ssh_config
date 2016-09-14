@@ -1,0 +1,3 @@
+Host isucon6
+  Hostname xxx.xxx.xxx.xx
+  IdentityFile ~/.ssh/id_rsa

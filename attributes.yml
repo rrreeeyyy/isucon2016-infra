@@ -1,0 +1,6 @@
+isucon6-omedeto:
+  :roles:
+    - base
+    - openresty
+    - redis
+    - mysql

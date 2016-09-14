@@ -1,0 +1,13 @@
+lists/
+.DS_Store
+(.*)\.orig
+vendor
+.ruby-version
+.rbenv-gemsets
+doc
+.yardoc
+spec/secrets.yml
+ssl/
+dh1024.pem
+pki/
+cookbooks/spamassassin/files/usr/local/src/
