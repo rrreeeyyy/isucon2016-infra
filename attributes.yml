@@ -4,3 +4,4 @@ isucon6-omedeto:
     - openresty
     - redis
     - mysql
+    - kataribe
