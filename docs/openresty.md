@@ -34,7 +34,7 @@ location /get {
 
     red:set_timeout(1000)
 
-    local ok, err = red:connect("1270.0.1", 6379)
+    local ok, err = red:connect("127.0.0.1", 6379)
     if not ok then
       ngx.say("failed to connect", err)
       return
@@ -98,7 +98,8 @@ end
 - サブリクエストのノンブロッキング発行
 
 ```
-res = ngx.location.capture("/external_service");
+local res = ngx.location.capture("/external_service")
+ngx.say(res.body)
 ```
 
 ## 参考文献
