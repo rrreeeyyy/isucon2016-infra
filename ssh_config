@@ -1,3 +1,4 @@
-Host isucon6
-  Hostname xxx.xxx.xxx.xx
+Host isucon6-omedeto
+  User isucon
+  Hostname 13.78.95.189
   IdentityFile ~/.ssh/id_rsa

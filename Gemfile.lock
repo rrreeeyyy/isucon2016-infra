@@ -2,8 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     ansi (1.5.0)
-    hashie (3.4.2)
-    itamae (1.5.2)
+    hashie (3.4.4)
+    itamae (1.9.9)
       ansi
       hashie
       schash (~> 0.1.0)
@@ -11,14 +11,14 @@ GEM
       thor
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.9.2)
+    net-ssh (3.2.0)
     net-telnet (0.1.1)
-    rake (10.4.2)
+    rake (11.2.2)
     schash (0.1.2)
     sfl (2.2)
-    specinfra (2.43.3)
+    specinfra (2.61.3)
       net-scp
-      net-ssh (~> 2.7)
+      net-ssh (>= 2.7, < 4.0)
       net-telnet
       sfl
     thor (0.19.1)
@@ -29,3 +29,6 @@ PLATFORMS
 DEPENDENCIES
   itamae
   rake
+
+BUNDLED WITH
+   1.11.2
